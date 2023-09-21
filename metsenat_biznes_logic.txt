@@ -1,0 +1,12 @@
+"""
+1.Sponsorlar: Yuridik va jismoniy shaxslar uchun ariza topshirish modelini bitta yozdim
+ikkalasi deyarli bir xil bolganligi uchun korsatilishi kerak bolmagan tableni formda bermaslik
+orqali yoki api bilan ishlasak serializer orqali uni chiqarib tashlashimiz mumkin.
+
+2.Admin:Admin adminkaga kirishda django authentifatsiyalari orqali adminlikka tekshiriladi,
+        admin homiylarni royhati korishi ularni tahrirlashi,
+        talabalarni qoshishi va va ularga homiylar biriktirishi,
+        har kunlik qoshilgan talabalar va homiylar sonini korishi mumkin,
+        homiylarni ariza holati boyicha,studentlarni talabalikturi va OTM lari boyicha filter qilishi mumkin
+
+"""
