@@ -1,0 +1,6 @@
+"Metsenat" Project Tasks:
+1. user authentication va authorizationlarni to'girlash, endpointlarga faqat jtw token orqalik murajat qilishni taminlash (djangorestframework-simplejwt).
+2. "drf-spectacular" kutubxonasini to'girlash va u yordamida endpointlarga bn ishlash.
+3. "sponsors" appni yaratib uning modelini va CRUD endpointlarini yozish.
+
+validate_organization-organizatsiyani validatsiya qilish uchun serializer faylidan chaqiriladi
