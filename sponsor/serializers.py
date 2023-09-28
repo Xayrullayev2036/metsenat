@@ -12,14 +12,14 @@ class SponsorSerializer(serializers.ModelSerializer):
 
 
 class SponsorListSerializers(serializers.ModelSerializer):
-    spent_amount = serializers.SerializerMethodField("get_spent_amount", read_only=True)
+    # spent_amount = serializers.SerializerMethodField("get_spent_amount", read_only=True)
 
     class Meta:
         model = Sponsor
-        fields = ["id", "fullname", "phone_number", "payment_amount", "spent_amount", "created_at", "status"]
+        fields = ["id", "fullname", "phone_number", "payment_amount", "created_at", "status"]
 
-    def get_spend_amount(self):
-        return 0
+    # def get_spend_amount(self):
+    #     return 0
 
 
 class SponsorDetailSerializers(serializers.ModelSerializer):
@@ -31,7 +31,7 @@ class SponsorDetailSerializers(serializers.ModelSerializer):
 class SponsorCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sponsor
-        exclude = ["created_at", "updated_at", "status"]
+        exclude = ["created_at", "updated_at"]
 
     def validate(self, attrs):
         if attrs.get("type") == SponsorTypeChoices.YURIDIK.value:

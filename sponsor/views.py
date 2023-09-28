@@ -1,6 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from sponsor.models import Sponsor
+from sponsor.permissions import SponsorPermission
 from sponsor.serializers import SponsorSerializer, SponsorCreateSerializer, SponsorListSerializers, \
     SponsorDetailSerializers, SponsorUpdateSerializer
 
@@ -8,7 +9,7 @@ from sponsor.serializers import SponsorSerializer, SponsorCreateSerializer, Spon
 class SponsorViewSet(ModelViewSet):
     queryset = Sponsor.objects.all()
     serializer_class = SponsorSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [SponsorPermission]
 
     def get_serializer_class(self):
         if self.action == "create":

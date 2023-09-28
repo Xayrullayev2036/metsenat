@@ -2,11 +2,11 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from core.models import HeadModel
+from core.models import TimeSteppedModel
 from sponsor.choices import SponsorTypeChoices, StatusChoices, PaymentTypeChoices
 
 
-class Sponsor(HeadModel):
+class Sponsor(TimeSteppedModel):
     fullname = models.CharField(_("fullname"), max_length=150, blank=True)
     sponsor_type = models.CharField(max_length=125, choices=SponsorTypeChoices.choices, blank=True)
     phone_number = models.CharField(max_length=13, unique=True, blank=True)
@@ -26,3 +26,4 @@ class Sponsor(HeadModel):
     def get_full_name(self):
         full_name = f"{self.fullname}"
         return full_name
+

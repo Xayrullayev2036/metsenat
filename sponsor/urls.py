@@ -4,6 +4,6 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenVerifyView,
 from sponsor.views import SponsorViewSet
 
 router = DefaultRouter()
-router.register("Sponsor", SponsorViewSet, basename="sponsor")
+router.register("sponsor", SponsorViewSet, basename="sponsor")
 
 urlpatterns = router.urls
