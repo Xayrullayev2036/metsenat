@@ -11,6 +11,17 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import datetime
 from pathlib import Path
+import environ
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +36,7 @@ SECRET_KEY = 'django-insecure-+q7*_+#zzz@dm3&*^!ehm9%ulnap*#(u=ka!v#35udh4_u3nwk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -86,10 +97,10 @@ WSGI_APPLICATION = 'metsenat.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'metsenat',
-        'USER': 'diyorbek',
-        'PASSWORD': '15',
-        'HOST': 'localhost',
+        'NAME': env('POSTGRES_DB'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': 'metsenat-db',
         'PORT': '5432',
     }
 }

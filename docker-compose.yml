@@ -12,7 +12,7 @@ services:
     container_name: metsenat_db
     image: postgres
     ports:
-      - '5433:5432'
+      - '5432:5432'
     env_file:
       - .env
     volumes:
@@ -34,7 +34,7 @@ services:
   metsenat-worker:
     build: ./
     container_name: metsenat_worker
-    command: celery --app=config worker -l INFO
+    command: celery --app=metsenat worker -l INFO
     volumes:
       - ./:/usr/src/app/"
     user: root
