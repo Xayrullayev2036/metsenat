@@ -31,8 +31,8 @@ class SponsorDetailSerializers(serializers.ModelSerializer):
 class SponsorCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sponsor
-        # exclude = ["created_at", "updated_at"]
-        fields = ["id","fullname","payment_type"]
+        exclude = ["created_at", "updated_at"]
+        # fields = ["id","fullname","payment_type"]
     def validate(self, attrs):
         if attrs.get("type") == SponsorTypeChoices.YURIDIK.value:
             if not attrs.get("company_name"):
@@ -45,8 +45,8 @@ class SponsorCreateSerializer(serializers.ModelSerializer):
 class SponsorUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sponsor
-        fields = ["id","fullname","payment_type"]
-        # exclude = ["created_at", "updated_at"]
+        # fields = ["id","fullname","payment_type"]
+        exclude = ["created_at", "updated_at"]
 
     def validate(self, attrs):
         if attrs.get("type") == SponsorTypeChoices.YURIDIK.value:

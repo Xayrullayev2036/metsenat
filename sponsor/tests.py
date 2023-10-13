@@ -50,19 +50,18 @@ class SponsorTests(APITestCase):
 
     def test_sponsor_detail(self):
         expecting_data = {
-            "id" : 1,
-            "fullname" : "string",
-            "phone_number" : '+998940362036',
+            "id": 1,
+            "fullname": "string",
+            "phone_number": '+998940362036',
             "payment_amount": "-6960.00",
             "company_name": "Pdp",
             "status": "",
-            "created_at":"2023-09-28"
+            "created_at": "2023-09-28"
         }
         url = reverse("sponsor-detail", kwargs={"pk": 1})
         response = self.client.get(path=url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, expecting_data)
-
 
     def test_sponsor_update(self):
         sponsor_name = "Diyorbek"
@@ -83,21 +82,21 @@ class SponsorTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, expecting_data)
 
-    # def test_sponsor_partial_update(self):
-    #     sponsor_name = "Diyorbek"
-    #     expecting_data = {
-    #         "id": 1,
-    #         "fullname": sponsor_name
-    #     }
-    #     url = reverse("sponsor-detail", kwargs={"pk": 1})
-    #     data = {
-    #         "fullname": sponsor_name
-    #     }
-    #     response = self.client.patch(path=url, data=data)
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(response.data, expecting_data)
+    def test_sponsor_partial_update(self):
+        sponsor_name = "Diyorbek"
+        expecting_data = {
+            "id": 1,
+            "fullname": sponsor_name
+        }
+        url = reverse("sponsor-detail", kwargs={"pk": 1})
+        data = {
+            "fullname": sponsor_name
+        }
+        response = self.client.patch(path=url, data=data)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data, expecting_data)
 
-    # def test_sponsor_delete(self):
-    #     url = reverse("sponsors-detail", kwargs={"pk": 2})
-    #     response = self.client.delete(path=url)
-    #     self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+    def test_sponsor_delete(self):
+        url = reverse("sponsors-detail", kwargs={"pk": 2})
+        response = self.client.delete(path=url)
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)

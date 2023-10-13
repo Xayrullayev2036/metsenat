@@ -9,7 +9,7 @@ from sponsor.serializers import SponsorSerializer, SponsorCreateSerializer, Spon
 class SponsorViewSet(ModelViewSet):
     queryset = Sponsor.objects.all()
     serializer_class = SponsorSerializer
-    # permission_classes = [SponsorPermission]
+    permission_classes = [SponsorPermission]
 
     def get_serializer_class(self):
         if self.action == "create":
